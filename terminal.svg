@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420" role="img" aria-label="4ofl@leg terminal telemetry">
+  <defs>
+    <filter id="amber-glow" x="-15%" y="-40%" width="130%" height="180%">
+      <feGaussianBlur stdDeviation="2.8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <clipPath id="type-cmd-1">
+      <rect class="clip-cmd-1" x="118" y="50" width="0" height="22" />
+    </clipPath>
+
+    <clipPath id="type-cmd-2">
+      <rect class="clip-cmd-2" x="118" y="168" width="0" height="22" />
+    </clipPath>
+  </defs>
+
+  <style>
+    <![CDATA[
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+      fill: #edece8;
+      white-space: pre;
+    }
+    .title {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      fill: #8c8a85;
+      letter-spacing: 0.3px;
+    }
+    .muted { fill: #8c8a85; }
+    .accent { fill: #d47455; }
+    .bone { fill: #edece8; }
+    .empty-slot { fill: #2c2c34; }
+
+    /* Universal Cursor Blink (only active when parent wrapper is visible) */
+    .cursor-blink {
+      animation: blink 0.55s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* 0s - 2s: Command 1 typing & git graph output */
+    .clip-cmd-1 {
+      animation: reveal-cmd-1 10s steps(30, end) infinite;
+    }
+    .cursor-1-wrap {
+      animation: c1-visibility 10s step-end infinite;
+    }
+    .cursor-move-1 {
+      animation: c1-translate 10s steps(30, end) infinite;
+    }
+    .log-1 { animation: fade-step-1 10s step-end infinite; }
+    .log-2 { animation: fade-step-2 10s step-end infinite; }
+    .log-3 { animation: fade-step-3 10s step-end infinite; }
+    .log-4 { animation: fade-step-4 10s step-end infinite; }
+
+    /* 2s - 4s: Command 2 typing & JSON telemetry output */
+    .prompt-2 { animation: show-prompt-2 10s step-end infinite; }
+    .clip-cmd-2 {
+      animation: reveal-cmd-2 10s steps(35, end) infinite;
+    }
+    .cursor-2-wrap {
+      animation: c2-visibility 10s step-end infinite;
+    }
+    .cursor-move-2 {
+      animation: c2-translate 10s steps(35, end) infinite;
+    }
+    .json-out { animation: show-json 10s step-end infinite; }
+
+    /* 4s - 6s+: Velocity bar & single idle blinking cursor */
+    .telemetry-bar {
+      animation: show-telemetry 10s ease-out infinite;
+    }
+    .amber-pulse {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    .cursor-3-wrap {
+      animation: c3-visibility 10s step-end infinite;
+    }
+
+    /* Keyframes */
+    @keyframes reveal-cmd-1 {
+      0%, 2% { width: 0px; }
+      11%, 96% { width: 250px; }
+      97%, 100% { width: 0px; }
+    }
+    @keyframes c1-visibility {
+      0% { visibility: visible; }
+      11.8% { visibility: hidden; }
+      100% { visibility: hidden; }
+    }
+    @keyframes c1-translate {
+      0%, 2% { transform: translateX(0px); }
+      11%, 100% { transform: translateX(242px); }
+    }
+
+    @keyframes fade-step-1 {
+      0%, 12% { opacity: 0; }
+      12.5%, 96% { opacity: 1; }
+      97%, 100% { opacity: 0; }
+    }
+    @keyframes fade-step-2 {
+      0%, 14% { opacity: 0; }
+      14.5%, 96% { opacity: 1; }
+      97%, 100% { opacity: 0; }
+    }
+    @keyframes fade-step-3 {
+      0%, 16% { opacity: 0; }
+      16.5%, 96% { opacity: 1; }
+      97%, 100% { opacity: 0; }
+    }
+    @keyframes fade-step-4 {
+      0%, 18% { opacity: 0; }
+      18.5%, 96% { opacity: 1; }
+      97%, 100% { opacity: 0; }
+    }
+
+    @keyframes show-prompt-2 {
+      0%, 20% { opacity: 0; }
+      20.5%, 96% { opacity: 1; }
+      97%, 100% { opacity: 0; }
+    }
+    @keyframes reveal-cmd-2 {
+      0%, 21% { width: 0px; }
+      31%, 96% { width: 285px; }
+      97%, 100% { width: 0px; }
+    }
+    @keyframes c2-visibility {
+      0%, 20.4% { visibility: hidden; }
+      20.5% { visibility: visible; }
+      31.8% { visibility: hidden; }
+      100% { visibility: hidden; }
+    }
+    @keyframes c2-translate {
+      0%, 21% { transform: translateX(0px); }
+      31%, 100% { transform: translateX(276px); }
+    }
+    @keyframes show-json {
+      0%, 32.5% { opacity: 0; }
+      33%, 96% { opacity: 1; }
+      97%, 100% { opacity: 0; }
+    }
+
+    @keyframes show-telemetry {
+      0%, 40% { opacity: 0; }
+      42%, 96% { opacity: 1; }
+      97%, 100% { opacity: 0; }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.78; }
+      50% { opacity: 1; }
+    }
+    @keyframes c3-visibility {
+      0%, 41.9% { visibility: hidden; }
+      42% { visibility: visible; }
+      96.5% { visibility: hidden; }
+      100% { visibility: hidden; }
+    }
+    ]]>
+  </style>
+
+  <!-- Outer Void Black Terminal Body -->
+  <rect x="0.75" y="0.75" width="798.5" height="418.5" rx="8" fill="#0b0b0d" stroke="#24242c" stroke-width="1.5" />
+
+  <!-- Steel Surface Window Chrome -->
+  <path d="M 1.5 8.5 A 7 7 0 0 1 8.5 1.5 L 791.5 1.5 A 7 7 0 0 1 798.5 8.5 L 798.5 36 L 1.5 36 Z" fill="#16161b" />
+  <line x1="1.5" y1="36" x2="798.5" y2="36" stroke="#24242c" stroke-width="1" />
+
+  <!-- Muted Monochrome Window Dots -->
+  <circle cx="22" cy="19" r="5" fill="#474644" />
+  <circle cx="38" cy="19" r="5" fill="#35353c" />
+  <circle cx="54" cy="19" r="5" fill="#27272e" />
+
+  <!-- Window Title -->
+  <text x="400" y="23" text-anchor="middle" class="title">4ofl@leg: ~ (zsh)</text>
+
+  <!-- 0s - 2s: Prompt 1 & Git Graph -->
+  <g>
+    <text x="24" y="66" class="mono" xml:space="preserve"><tspan class="accent">4ofl@leg</tspan><tspan class="muted">:</tspan><tspan class="bone">~</tspan><tspan class="muted">$</tspan></text>
+    <g clip-path="url(#type-cmd-1)">
+      <text x="118" y="66" class="mono" xml:space="preserve">git log --graph --oneline -n 4</text>
+    </g>
+    <g class="cursor-1-wrap">
+      <text x="118" y="66" class="mono accent cursor-move-1 cursor-blink">▋</text>
+    </g>
+
+    <text x="24" y="90" class="mono log-1" xml:space="preserve"><tspan class="accent">*</tspan> <tspan class="accent">7e2f1a9</tspan> <tspan class="muted">(HEAD -&gt; main)</tspan> <tspan class="muted">net:</tspan> socket-level ip pinning &amp; anti-ssrf</text>
+    <text x="24" y="110" class="mono log-2" xml:space="preserve"><tspan class="accent">*</tspan> <tspan class="accent">4c08b21</tspan> <tspan class="muted">hw:</tspan> biomax tcp 5005 listener + win32 p/invoke daemon</text>
+    <text x="24" y="130" class="mono log-3" xml:space="preserve"><tspan class="accent">*</tspan> <tspan class="accent">d9a103e</tspan> <tspan class="muted">core:</tspan> discord heartbeat state machine &amp; watchdog</text>
+    <text x="24" y="150" class="mono log-4" xml:space="preserve"><tspan class="accent">*</tspan> <tspan class="accent">1a8c402</tspan> <tspan class="muted">db:</tspan> jet engine mdb to sqlite wal single-txn migration</text>
+  </g>
+
+  <!-- 2s - 4s: Prompt 2 & JSON Status Telemetry -->
+  <g class="prompt-2">
+    <text x="24" y="184" class="mono" xml:space="preserve"><tspan class="accent">4ofl@leg</tspan><tspan class="muted">:</tspan><tspan class="bone">~</tspan><tspan class="muted">$</tspan></text>
+  </g>
+  <g clip-path="url(#type-cmd-2)">
+    <text x="118" y="184" class="mono" xml:space="preserve">curl -s https://api.4ofl.dev/status</text>
+  </g>
+  <g class="cursor-2-wrap">
+    <text x="118" y="184" class="mono accent cursor-move-2 cursor-blink">▋</text>
+  </g>
+
+  <g class="json-out">
+    <text x="24" y="208" class="mono muted">{</text>
+    <text x="24" y="228" class="mono" xml:space="preserve">  <tspan class="muted">"state":</tspan> <tspan class="accent">"operational"</tspan><tspan class="muted">,</tspan></text>
+    <text x="24" y="248" class="mono" xml:space="preserve">  <tspan class="muted">"edge_cache":</tspan> <tspan class="bone">"hit"</tspan><tspan class="muted">,</tspan></text>
+    <text x="24" y="268" class="mono" xml:space="preserve">  <tspan class="muted">"uptime":</tspan> <tspan class="bone">"90d verified"</tspan><tspan class="muted">,</tspan></text>
+    <text x="24" y="288" class="mono" xml:space="preserve">  <tspan class="muted">"target":</tspan> <tspan class="bone">"summer '26"</tspan></text>
+    <text x="24" y="308" class="mono muted">}</text>
+  </g>
+
+  <!-- 4s - 6s: Bottom Commit Velocity Bar & Active Idle Cursor -->
+  <line x1="24" y1="334" x2="776" y2="334" stroke="#16161b" stroke-width="1.5" />
+
+  <g class="telemetry-bar">
+    <text x="24" y="362" class="mono" xml:space="preserve"><tspan class="muted">activity: [</tspan><tspan class="accent amber-pulse" filter="url(#amber-glow)">■■■■■■■■■■■■■■■■</tspan><tspan class="empty-slot">□□□□</tspan><tspan class="muted">]</tspan> <tspan class="bone">82.4% velocity</tspan></text>
+    <text x="24" y="392" class="mono" xml:space="preserve"><tspan class="accent">4ofl@leg</tspan><tspan class="muted">:</tspan><tspan class="bone">~</tspan><tspan class="muted">$</tspan></text>
+    <g class="cursor-3-wrap">
+      <text x="118" y="392" class="mono accent cursor-blink">▋</text>
+    </g>
+  </g>
+</svg>
