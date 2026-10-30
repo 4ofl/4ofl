@@ -4,6 +4,8 @@
 
 <p align="center">
   <img src="./terminal.svg" width="800" alt="4ofl@leg terminal telemetry" />
+  <br /><br />
+  <img src="https://api.4ofl.dev/commit-activity.svg" width="800" alt="4ofl commit activity" />
 </p>
 
 ### systems & engineering
